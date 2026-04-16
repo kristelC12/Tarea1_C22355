@@ -1,12 +1,13 @@
 :root {
-    --color-bg: #ffffff;
-    --color-text: #222222;
-    --color-muted: #7d7d7d;
-    --color-primario: #17181d;
+    --color-bg:         #ffffff;
+    --color-text:       #222222;
+    --color-muted:      #7d7d7d;
+    --color-primario:   #17181d;
     --color-secundario: #29b36b;
-    --color-card-bg: #fbfbfb;
-    --color-borde: #d8d8d8;
-    --color-enlace: #8f8f8f;
+    --color-card-bg:    #fbfbfb;
+    --color-borde:      #d8d8d8;
+    --color-enlace:     #8f8f8f;
+    --color-subtle:     #555555;
 }
 
 * {
@@ -20,6 +21,8 @@ body {
     color: var(--color-text);
     font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
 }
+
+/* ── Header ─────────────────────────────────────────────── */
 
 header.site-header {
     width: min(1120px, 94%);
@@ -49,9 +52,14 @@ header.site-header {
     font-size: 0.9rem;
 }
 
+/* Colocamos :hover después de .site-nav a para aprovechar la cascada:
+   ambas reglas tienen la misma especificidad, pero :hover aplica solo
+   en el estado interactivo sin necesidad de aumentar el peso del selector. */
 .site-nav a:hover {
     color: var(--color-primario);
 }
+
+/* ── Carrusel ────────────────────────────────────────────── */
 
 .container-carrusel {
     width: min(1200px, 92%);
@@ -79,15 +87,25 @@ header.site-header {
     display: block;
 }
 
+.carrusel-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 26px 22px;
+    background: linear-gradient(to top, rgba(0,0,0,0.68) 10%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.05) 100%);
+}
+
 .carrusel-category {
     display: inline-block;
     padding: 6px 14px;
     margin-bottom: 14px;
-    color: #ffffff;
+    color: var(--color-bg);
     font-size: 0.78rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    border-radius: 0;
     width: max-content;
     clip-path: polygon(2px 0, 100% 0, calc(100% - 2px) 100%, 0 100%);
 }
@@ -97,18 +115,7 @@ header.site-header {
     font-family: "Lora", Georgia, "Times New Roman", serif;
     font-size: 1.2rem;
     line-height: 1.4;
-    color: #ffffff;
-}
-
-.carrusel-text {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 10px;
-    padding: 26px 22px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.68) 10%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.05) 100%);
+    color: var(--color-bg);
 }
 
 .carrusel-finaltext {
@@ -118,17 +125,11 @@ header.site-header {
     opacity: 0.8;
 }
 
-.category-lifestyle {
-    background-color: #605dff;
-}
+.category-lifestyle { background-color: #605dff; }
+.category-health    { background-color: #ef3040; }
+.category-gaming    { background-color: #f6c61f; }
 
-.category-health {
-    background-color: #ef3040;
-}
-
-.category-gaming {
-    background-color: #f6c61f;
-}
+/* ── Page layout ─────────────────────────────────────────── */
 
 .page-layout {
     width: min(1120px, 94%);
@@ -144,6 +145,8 @@ header.site-header {
     flex-direction: column;
     gap: 22px;
 }
+
+/* ── Featured post ───────────────────────────────────────── */
 
 .featured-post {
     display: flex;
@@ -175,9 +178,7 @@ header.site-header {
     text-transform: uppercase;
 }
 
-.tag-travel {
-    color: var(--color-secundario);
-}
+.tag-travel { color: var(--color-secundario); }
 
 .featured-title,
 .small-post-title {
@@ -203,7 +204,7 @@ header.site-header {
     margin: 0;
     font-size: 0.92rem;
     line-height: 1.45;
-    color: #555555;
+    color: var(--color-subtle);
 }
 
 .read-more {
@@ -213,9 +214,9 @@ header.site-header {
     text-decoration: none;
 }
 
-.read-more:hover {
-    color: var(--color-primario);
-}
+.read-more:hover { color: var(--color-primario); }
+
+/* ── Posts grid ──────────────────────────────────────────── */
 
 .posts-grid {
     display: grid;
@@ -237,14 +238,10 @@ header.site-header {
     display: block;
 }
 
-.small-post-title {
-    font-size: 1.05rem;
-    line-height: 1.2;
-}
+.small-post-title { font-size: 1.05rem; line-height: 1.2; }
+.small-link       { margin-top: -2px; }
 
-.small-link {
-    margin-top: -2px;
-}
+/* ── Sidebar ─────────────────────────────────────────────── */
 
 .sidebar {
     display: flex;
@@ -256,7 +253,7 @@ header.site-header {
     padding: 16px 18px 18px;
     border-radius: 8px;
     background: var(--color-card-bg);
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -266,14 +263,14 @@ header.site-header {
     margin: 0;
     font-size: 1rem;
     font-weight: 400;
-    color: #2d2d2d;
+    color: var(--color-text);
 }
 
 .newsletter-text {
     margin: -4px 0 6px;
     font-size: 0.7rem;
     font-style: italic;
-    color: #8d8d8d;
+    color: var(--color-muted);
 }
 
 .newsletter-input {
@@ -282,17 +279,15 @@ header.site-header {
     border: 1px solid var(--color-borde);
     border-radius: 4px;
     font-size: 0.78rem;
-    color: #333333;
-    background: #ffffff;
+    color: var(--color-text);
+    background: var(--color-bg);
 }
 
-.newsletter-input::placeholder {
-    color: #a5a5a5;
-}
+.newsletter-input::placeholder { color: #a5a5a5; }
 
 .newsletter-input:focus {
     border-color: var(--color-primario);
-    outline: 2px solid rgba(23, 24, 29, 0.12);
+    outline: 2px solid rgba(23,24,29,0.12);
 }
 
 .newsletter-button {
@@ -307,9 +302,7 @@ header.site-header {
     cursor: pointer;
 }
 
-.newsletter-button:hover {
-    filter: brightness(1.07);
-}
+.newsletter-button:hover { filter: brightness(1.07); }
 
 .sidebar-section {
     display: flex;
@@ -321,7 +314,7 @@ header.site-header {
     margin: 0;
     font-size: 1rem;
     font-weight: 400;
-    color: #333333;
+    color: var(--color-text);
 }
 
 .category-list {
@@ -360,13 +353,15 @@ header.site-header {
     margin: 0 0 6px;
     font-size: 0.78rem;
     line-height: 1.3;
-    color: #555555;
+    color: var(--color-subtle);
 }
 
 .recent-post span {
     font-size: 0.68rem;
     color: #8a8a8a;
 }
+
+/* ── Footer ──────────────────────────────────────────────── */
 
 footer.site-footer {
     width: min(1120px, 94%);
@@ -377,7 +372,7 @@ footer.site-footer {
     font-size: 0.85rem;
 }
 
-/* Dejamos .site-nav a:hover despues de .site-nav a para que la cascada aplique el color interactivo solo en hover sin aumentar la especificidad. */
+/* ── Responsive ──────────────────────────────────────────── */
 
 @media (max-width: 900px) {
     header.site-header {
@@ -394,25 +389,11 @@ footer.site-footer {
     }
 }
 
+/* Los breakpoints de 700px y 720px se fusionaron en uno solo
+   ya que compartían las mismas reglas, eliminando duplicación. */
 @media (max-width: 720px) {
     .container-carrusel {
-        margin: 24px auto;
-        gap: 20px;
-    }
-
-    .carrusel {
-        min-height: 420px;
-        max-width: 100%;
-    }
-
-    .carrusel-description {
-        font-size: 1.65rem;
-    }
-}
-
-@media (max-width: 700px) {
-    .container-carrusel {
-        margin-top: 12px;
+        margin: 12px auto 20px;
         gap: 20px;
     }
 
