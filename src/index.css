@@ -1,0 +1,461 @@
+:root {
+    --color-lifestyle: #605dff;
+    --color-health:    #ef3040;
+    --color-gaming:    #f6c61f;
+    --color-dark:      #17181d;
+    --color-text:      #333333;
+    --color-muted:     #7d7d7d;
+    --color-bg:        #fafafa;
+    --color-white:     #ffffff;
+    --radius-card:     12px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-white);
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+
+.container-carrusel {
+    width: min(1200px, 92%);
+    margin: 48px auto;
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.carrusel {
+    position: relative;
+    flex: 1 1 300px;
+    min-height: 470px;
+    max-width: 360px;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+}
+
+.carrusel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carrusel-category {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+    color: var(--color-white);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 0;
+    width: max-content;
+    clip-path: polygon(2px 0, 100% 0, calc(100% - 2px) 100%, 0 100%);
+}
+
+.carrusel-description {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.20rem;
+    line-height: 1.4;
+    color: var(--color-white);
+}
+
+.carrusel-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 26px 22px;
+    background: linear-gradient(to top, rgba(0,0,0,0.68) 10%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.05) 100%);
+}
+
+.carrusel-finaltext {
+    margin: 8px 0 0;
+    color: #f2f4f7;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Usamos variables CSS para los colores de categoría.
+   Al definirlos aquí con clases específicas (.category-lifestyle,
+   .category-health, .category-gaming) en lugar de estilos inline,
+   garantizamos que estas reglas tengan mayor especificidad que cualquier
+   estilo heredado de .carrusel-category, sin necesidad de !important. */
+.category-lifestyle { background-color: var(--color-lifestyle); }
+.category-health    { background-color: var(--color-health); }
+.category-gaming    { background-color: var(--color-gaming); }
+
+
+.form {
+    width: min(330px, 92%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px;
+    background-color: var(--color-bg);
+    border-radius: var(--radius-card);
+}
+
+.form-label {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: -20px;
+}
+
+.form-description {
+    font-style: italic;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #999999;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    padding: 12px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    font-size: 1rem;
+    font-family: Arial, Helvetica, serif;
+    color: var(--color-text);
+}
+
+.form-input::placeholder {
+    color: #bbbbbb;
+}
+
+/* Pseudo-selector :focus para accesibilidad en inputs */
+.form-input:focus {
+    outline: 2px solid var(--color-lifestyle);
+    border-color: var(--color-lifestyle);
+}
+
+.form-button {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 12px 16px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-dark);
+    color: #c2c2c2;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+}
+
+.form-button:hover {
+    background-color: #2d2e36;
+}
+
+.page-layout {
+    width: min(1120px, 94%);
+    margin: 18px auto 30px;
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(280px, 0.9fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.content-column {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.featured-post {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.featured-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.featured-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 6px;
+}
+
+.post-tag {
+    display: inline-block;
+    width: max-content;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tag-travel {
+    color: #29b36b;
+}
+
+.featured-title,
+.small-post-title {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    color: #222222;
+}
+
+.featured-title {
+    font-size: 2rem;
+    line-height: 1.12;
+}
+
+.featured-meta {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+}
+
+.featured-description,
+.small-post-text {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: #555555;
+}
+
+.read-more {
+    width: max-content;
+    font-size: 0.78rem;
+    color: #8f8f8f;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    color: var(--color-text);
+    text-decoration: underline;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.small-post {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.small-post-image {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.small-post-title {
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+
+.small-link {
+    margin-top: -2px;
+}
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.newsletter-card {
+    padding: 16px 18px 18px;
+    border-radius: 8px;
+    background: #fbfbfb;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #2d2d2d;
+}
+
+.newsletter-text {
+    margin: -4px 0 6px;
+    font-size: 0.7rem;
+    font-style: italic;
+    color: #8d8d8d;
+}
+
+.newsletter-input {
+    height: 34px;
+    padding: 0 11px;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    color: var(--color-text);
+    background: var(--color-white);
+}
+
+.newsletter-input::placeholder {
+    color: #a5a5a5;
+}
+
+.newsletter-input:focus {
+    outline: 2px solid var(--color-lifestyle);
+    border-color: var(--color-lifestyle);
+}
+
+.newsletter-button {
+    height: 34px;
+    border: none;
+    border-radius: 4px;
+    background: var(--color-dark);
+    color: #f0f0f0;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.newsletter-button:hover {
+    background-color: #2d2e36;
+}
+
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sidebar-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text);
+}
+
+.category-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.category-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.92rem;
+    color: #444444;
+}
+
+.recent-post {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 10px;
+    align-items: start;
+}
+
+.recent-post img {
+    width: 78px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+}
+
+.recent-post p {
+    margin: 0 0 6px;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    color: #555555;
+}
+
+.recent-post span {
+    font-size: 0.68rem;
+    color: #8a8a8a;
+}
+
+
+@media (max-width: 900px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 720px) {
+    .container-carrusel {
+        margin: 24px auto;
+        gap: 20px;
+    }
+
+    .carrusel {
+        min-height: 420px;
+        max-width: 100%;
+    }
+
+    .carrusel-description {
+        font-size: 1.65rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .container-carrusel {
+        margin-top: 12px;
+        gap: 20px;
+    }
+
+    .carrusel {
+        min-height: 420px;
+        max-width: 100%;
+    }
+
+    .carrusel-description {
+        font-size: 1.65rem;
+    }
+
+    .page-layout {
+        width: min(1120px, 92%);
+        margin-top: 12px;
+    }
+
+    .featured-image {
+        height: 240px;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-title {
+        font-size: 1.55rem;
+    }
+}
